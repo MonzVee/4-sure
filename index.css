@@ -178,7 +178,8 @@ a {
     border-radius: 3px;
     color: white;
     cursor: pointer;
-    transition: background 0.3s ease-in-out;
+    transition: all .2s;
+    position: relative;
   }
 
 .button__login:hover {
@@ -188,25 +189,52 @@ a {
     transition-timing-function: ease-out;
     transition: 0.25s;
 
-    animation-name: moveInLeft;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(192,192,192,.2);
+    
+    /*
+    animation-name: moveInBottom;
     animation-duration: 1s;
-    animation-timing-function: ease-out;
+    animation-timing-function: ease-out .75s;
   }
 
-  @keyframes moveInLeft {
+  @keyframes moveInBottom {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateY(30px);
     }
 
-    80% {
-        transform: translateX(10px);
-    }
 
     100% {
         opacity: 1;
         transform: translate(0);
-    }
+    } */
+} 
+
+.button__login:active{
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(192,192,192,.2); 
+
+}
+
+.button__login::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  background-color: #66ff66bd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; 
+  transition: all .4s;
+
+}
+
+.button__login:hover::after {
+  transform: scalex(1.2) scaleY(1.4);
+  opacity: 0;
 }
 
   .forgot {
